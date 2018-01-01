@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	*{
+		padding: 0;
+		margin: 0;
+	}
+	body{
+background: url(./images/setting_02.jpg);
+
+	background-repeat: repeat-x;
+		opacity: 0.8;
+		background-size: cover;
+		padding: 20px;	
+		
+	}
+		img{
+			border:8px solid #6C9024;
+			border-radius: 100px/50px;
+			box-shadow: 5px 5px;
+		}
+
+		.box1{
+			width: 300px;
+			height: 100px;
+			padding-right: 10px;
+			background: #F90;
+			border:10px solid #ccc;
+			box-sizing: content-box;
+		}
+		.box2{
+			width: 300px;
+			height: 100px;
+			padding-right: 10px;
+			background: #F90;
+			border:10px solid #ccc;
+			box-sizing: border-box;
+		}
+		#cc{
+			width: 200px;
+			height: 200px;
+			border-radius: 50%;
+			background-image:repeating-linear-gradient(90deg,#E50743,#E8ED30 10%,#3FA62E 15%l);
+		}
+	</style>
+</head>
+<body>
+	<div class="all">
+	<img src="../images/setting_03.jpg" width="300px">
+	<div class="box1">content_box</div>
+	<div class="box2">border_box</div>
+	<div id="cc"></div>
+	</div>
+</body>
+</html>

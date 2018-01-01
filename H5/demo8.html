@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>demo8</title>
+</head>
+<body>
+	<h1 id="title" class="white"> Artical</h1>
+	<div class="box">12</div>
+	<button>bto</button>
+	<button id="bto">bto2</button>
+	<span>12</span>
+	<span>34</span>
+
+	<script src="../jquery-3.2.1.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('h1').html("jquery").css("background-color","#f3f3f3");
+			$('h1').width("500px");
+			console.log($('h1').offset());
+			console.log($('h1').offset().left);
+			var be = new Object();
+			be.left = 0;
+			be.right = 50;
+			console.log($('h1').offset(be));
+			$(".box").css("background-color","green");
+			$(".box").css("width","500px");
+			$(".box").css("height","300px");
+			$("button").click(function(){
+				$(".box").animate({width:"300px",opacity:'0.5',speed:'2000'});
+			});
+			$('.box').mouseover(function(){
+				$('.box').hide();
+			});
+
+			$('#bto').click(function(){
+				$('span').each(function(index){
+				$(this).delay(index*1000).fadeOut(1000);
+			});
+			
+		});
+		});
+	</script
+
+
+
+</body>
+</html>

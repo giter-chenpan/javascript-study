@@ -1,0 +1,33 @@
+
+header{
+	text-align: center;
+}
+body{
+	font-family: "微软雅黑";
+	text-align: center;
+}
+a{
+	text-indent: 2em;
+	display: inline-block;
+	font-size: 22px;
+	color: #5E2D00;
+}
+
+a:nth_child(1){text-indent: 0;}
+a:link,a:visited{text-decoration: none;}
+a:hover{
+	text-decoration: underline;
+	color: #f03;
+}
+
+
+dl{display: none;}
+dd{
+	color: #333;
+
+}
+
+em:nth-child(1) {
+	color: #f03;
+}
+:target{display: block;}

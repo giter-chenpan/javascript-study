@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>12.20</title>
+
+
+	<style type="text/css">
+		
+
+	/*关闭按钮
+		body{
+			background: #2ecc71;
+		}
+		#close{
+			font-size: 0px;
+			display: block;
+
+		}
+		#close::before,#close::after{
+			content: '';
+			width: 50px;
+			height: 2px;
+			background:  #fff;
+			display: block;
+
+		}
+		#close::after{
+			
+			-webkit-transform:translateY(10px) rotate(-45deg);//逆时针旋转45度
+			transform:translateY(2px) rotate(-45deg);
+
+		}
+
+		#close::before{
+			-webkit-transform:translateY(12px) rotate(45deg);//顺时针旋转45度
+			transform:translateY(12px) rotate(45deg);
+		}
+*/		
+	
+
+
+/*Menu菜单
+		a{
+			text-decoration: none;
+			color: #999;
+			text-indent: 1.2em;
+			font-size: 32px;
+			display: block;
+			line-height: 1;
+			position: relative;
+
+		}
+		a::after{
+			content: '';
+			position: absolute;
+			width: .75em;
+			box-shadow: 0 10px 0 2px #999,0 20px 0 2px #999, 0 30px 0 2px #999;
+			left: 0;
+			top: -4px;
+		}
+
+*/
+	</style>
+</head>
+<body>
+	<!--<span id="close">Close</span>-->
+
+
+	<!--<a href="">Menu</a>  -->
+
+
+
+
+<!-- canvas test!-->
+	<canvas id="mycanvas" width="800px" height="400px"></canvas>
+	<script type="text/javascript">
+		var canvas = document.getElementById('mycanvas');
+		
+
+		var context = canvas.getContext("2d");
+		
+/*
+		context.strokeStyle = '#e74c3c'; //绘制颜色
+		context.fillStyle="#000"; //填充颜色
+		context.lineWidth = 5; 
+
+		context.strokeRect(250,100,100,100); //绘制矩形
+		context.fillRect(500,100,100,100);	//填充颜色
+		context.moveTo(50,100);
+		context.lineTo(100,100);
+		context.beginPath();	
+		context.arc(400,100,50,0,Math.PI*2);	//圆形绘制
+		context.closePath(); //闭合路径
+		context.stroke();	//描边
+*/
+		
+		//canvas中绘制位图与文字
+		context.fillStyle = "#976969";
+		context.fillRect(0,0,800,400);
+		var img = new Image(); 
+		img.src = "setting_01.jpg"; //Yng
+		img.onload=function(){
+		context.drawImage(img,100,100);
+		}
+		context.fillStyle="#ffffff";
+		context.font = '48px georgia';
+		context.fillText("this is a picture",210,200);
+
+
+
+
+
+	</script>
+</body>
+</html>

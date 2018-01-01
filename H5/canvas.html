@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" lang="en">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="mycanvas" width="1366px"  height="680px"></canvas>
+	<script type="text/javascript">
+		var canvas = document.getElementById('mycanvas');
+		var context = canvas.getContext('2d');
+		var img = new Image();
+		img.src = "setting_03.jpg";
+
+		img.onload = function(){
+			context.drawImage(img,0,0,1366,768);
+			img = context.getImageData(0,0,1366,768);  //获取像素字节数
+
+			var picLength = 1366*768;	
+			for(var i = 0;i<picLength*4;i +=4){	//每个像素由四个值组成，代表红绿蓝和透明值
+				var myRed = img.data[i];
+
+				var myGreen = img.data[i+1];
+				var myBlue = img.data[i+2];
+				var Alpha = img.data[i+3];
+			
+				var myGay = parseInt((myRed + myGreen +myBlue)/3);
+				img.data[i] = myGay;
+				img.data[i+1] = myGay;
+				img.data[i+2] = myGay;
+				img.data[i+3] = 128;
+			}
+			context.putImageData(img,0,0);
+			
+}
+		
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style type="text/css">
+/*
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	body{
+		background: #000 url(setting_03.jpg) no-repeat 50% 0;
+		margin: 10% 20%;
+		color:blue;
+		font-family: 'Helvetica',sans-serif;
+		background-attachment: fixed;  //背景固定，不随文字滚动而发生变化；
+		text-shadow: 1px 2px 0 rgba(0,0,0,.75);
+	}
+	h1{
+		font-size: 120px;
+		text-transform:uppercase; 
+		border-bottom:2px solid #fff;
+		padding-bottom: 50px;
+	}
+	::selection{
+		text-shadow: none;
+		color: #f3f3f3;
+		background-color: #e74c3c;
+	}
+
+
+
+
+
+局部滚动
+*/
+html,body{
+	height: 100%;
+}
+
+body{
+	background: #06c url(../images/setting_05.jpg) no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	margin: 0;
+	padding: 0;
+	color: #fff;
+	position: relative;
+}
+
+
+#title{
+	position: absolute;
+	bottom: 20%;
+	left: 8%;
+	position: fixed;
+}
+#title h1{
+	font-size: 56px;
+	text-transform: uppercase;
+}
+#title ul{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+#title li{
+	display: inline-block;
+}
+#title li a{
+	color: #fff;
+}
+
+#scroll{
+	position: absolute;
+	left: 65%;
+	width: 300px;
+	padding: 0 30px;
+	background: rgba(255,255,255,.15);
+}
+#scroll .artical{
+	width: 300px;
+	padding-top: 50%;
+
+}
+#scroll .artical h1{
+	font-weight: normal;
+}
+#scroll .artical img{
+	margin-top: 30px;
+	width: 300px;
+}
+
+</style>
+<body>
+<!--
+	<input type="text" name="" id="one1" >
+	<button id="btn"> Let's guest!</button>
+	<script type="text/javascript">
+		 function ff() {
+			// body...
+			var number =Math.ceil(Math.random()*33);
+			console.log(number);
+			return number;
+
+		}
+		var result = ff();
+		var val = document.getElementById('one1');
+		var btn = document.getElementById('btn').onclick=function(){
+			val.value = result;
+		}
+	</script>
+
+
+
+
+
+<h1>h5</h1>
+<p><br>SOFTGAMES公司CEO阿列克斯指出，开发H5游戏有三大难题：<br><br><br>
+一、不同手机的屏幕兼容性；<br>
+二、操作方式的兼容性；<br>
+三、H5游戏音频滞后，易导致移动浏览器载入时间过长、游戏卡顿、浏览器崩溃。<br><br>
+此外，用户手机的网速与流量费用，也是制约H5游戏深度发展的主因。<br><br><br><br>
+所以，目前状态下，H5游戏多以轻度休闲的小游戏为主。“未来移动游戏的发展趋势，应该是H5生态与移动App共赢<br><br><br>的状态。”Egret白鹭引擎联合创始人<br><br>
+1、基于TypeScript及JavaScript技术<br><br>
+2、支持Flash到Egret高效转换<br><br>
+
+3、引擎、工具、运行时完整工作流<br><br>
+
+
+
+H5游戏生态圈：<br><br>
+
+H5游戏平台正以跨平台运营模式作为未来前进方向，<br><br><br><br>将各个平台端游戏汇总整合集中，为玩家提供便捷的游戏通道，开创游戏平台运营新纪元，<br><br><br><br><br>并努力成为综合游戏平台领跑者。同时，依托已有的大数据技术和消费金融模式等优势，搭建全球最大的h5游戏玩家生态圈，欢乐人游戏平台正是其中之一。<br><br></p>
+
+
+
+
+
+
+
+
+
+局部滚动
+-->
+<div id="title">
+<h1>The Scroll Effect</h1>
+<ul>
+	<li><a href="#pic1" >pic1</a></li>
+	<li><a href="#pic2" >pic2</a></li>
+	<li><a href="#pic3" >pic3</a></li>
+	<li><a href="#pic4" ">pic4</a></li>
+	</ul>
+</div>
+	<div id="scroll">
+		<div  class="artical"  id="pic1">
+			<img src="../images/18.jpg">
+			<h2>pic1</h2>
+			<p>this is PictureOne</p>
+		</div>
+
+		<div id="pic2" class="artical">
+			<img src="../images/setting_03.jpg">
+			<h2>pic2</h2>
+			<p>this is PictureTwo</p>
+		</div>
+
+		<div id="pic3" class="artical">
+			<img src="../images/setting_04.jpg">
+			<h2>pic3</h2>
+			<p>this is PictureThree</p>
+		</div>
+
+		<div id="pic4" class="artical">
+			<img src="../images/setting_05.jpg">
+			<h2>pic4</h2>
+			<p>this is PictureFour</p>
+		</div>
+
+	</div>	
+
+
+
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	 <meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title>index</title>
+	<style type="text/css">
+		/*@import url("./H5/demo7.css");*/
+
+
+		/*canvas粒子*/
+		body{
+			background:#45aad7;
+    		margin:0;
+   			 padding:0;
+		}
+		body,html{
+			width: 100%;
+			height: 100%;
+		}
+
+		#mycanvas{
+			height: 100%;
+			width: 100%;
+			display: block;
+		}
+	</style>
+
+
+ 	
+
+
+</head>
+<body>
+	<!--
+	<button id="submit" style="width: 100px">submit</button>
+	
+	<script type="text/javascript" >
+		
+		var submit= document.getElementById("submit");
+		submit.addEventListener("touchstart", function submitForm(event) {
+			
+			submit.innerHTML = "触点weizi："+event.touches[0].pageX;
+		});
+		
+	</script>
+-->
+
+<canvas id="mycanvas"  > your browser does not support the canvas element.</canvas>
+
+<script type="text/javascript">
+	//绘制雪花图
+	var canvas = document.getElementById('mycanvas');
+	var context = canvas.getContext("2d");//放回一个对象，提供了用于画布上的绘图方法和属性
+
+	 var particles = [];//为粒子创建一个数组
+	 for (var i = 0; i <= 500; i++) {
+	 	particles.push({
+	 		x:Math.random()*window.innerWidth,
+	 		y:Math.random()*window.innerHeight,
+	 		vx:(Math.random()*1-.5),
+	 		vy:(Math.random()*1+.5),
+	 		size:1+Math.random()*2,
+	 		color:'#'+('00000'+(Math.random()*0x1000000<<0)).toString(16).slice(-6)
+
+	 	});
+		 	}
+
+	function timeUpDate(e){
+		
+		context.clearRect(0,0,window.innerWidth,window.innerHeight);//清除畫布區域
+		var particle;
+		for(var i = 0;i<500;i++){
+			particle = particles[i];
+
+			particle.x += particle.vx;
+			particle.y += particle.vy;
+
+			if(particle.x<0){
+				particle.x = window.innerWidth; //如果超過窗口左側，顯示在最右側
+			}
+
+			if(particle.x>window.innerWidth){ //如果超過窗口右側，顯示在最左側
+				particle.x = 0;
+			}
+			
+			
+			if(particle.y>=window.innerHeight){ //如果超過最上方，顯示為最下方
+				particle.y = 0;
+			}
+
+			context.fillStyle = particle.color;    //設置顏色
+			context.beginPath(); //開始繪製雪花
+			context.arc(particle.x,particle.y,particle.size,0,Math.PI*2); //繪製
+			context.closePath();// 閉合路勁
+			context.fill(); //填充顏色
+		}
+	}
+	setInterval(timeUpDate,40);
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>12.13</title>
+	<!--<link rel="stylesheet" type="text/css" href="demo6.css">
+-->
+<style type="text/css">
+	@import url("demo6.css");
+</style>
+
+<script type="text/javascript">
+	var a ='a'+1+3;
+	console.log(a);
+function OOP(name,age,sex){
+	this.name = name;
+	this.age = age;
+	this.sex = sex;
+	this.name2 = function(){
+		console.log(name);
+	}
+}
+
+
+OOP.prototype.showAge = function() {
+	// body...
+	console.log(this.age);
+}
+
+
+var oop = new OOP('cp',12,'man');
+console.log(oop.name);
+console.log(oop.age);
+console.log(oop.sex);
+oop.name2();
+
+oop.showAge();
+
+</script>
+</head>
+<body>
+	<!--<div>
+		<div id="first">
+		  <p>first</p>
+		<div id="second">
+			<p>second</p>
+			<div id="third">
+				<p>third</p>
+				<div id="fourth">
+					<p>fourth</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	</div>
+-->
+
+<div class="box">
+	<h1>box</h1>
+</div>
+
+<ul>
+	<li>l</li>
+	<li>2</li>
+	<li>3</li>
+	<li>4</li>
+</ul>
+<img src="../Flat-UI-master/Flat-UI-master/img/icons/svg/pencils.svg" alt="pensils" class="title-image">
+</body>
+</html>
