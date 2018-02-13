@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+<title>陈攀的主页</title>
+<mate charset="UTF-8">
+<mate name="keyword" contend="cp我的主页"> 
+<mate name="description" content="ffff">
+ <style> 
+   *{margin:0;} 
+   .taichi{
+   width:400px;
+   height:400px;
+   backgroung:linear-gradient(black 50%,white 50%);<!--渐变色-->
+   margin：100px auto;
+   border-radius:50%;
+
+
+
+   }
+ </style>
+</head>
+<body>
+  <div class="taichi">
+   <div></div>
+   <div></div>
+  </div>
+</body>
+</html>
+
+
+
+
+
+
+1.人家需要什么：  技术；读懂人家的需求：熟练（会干事，熟练，回切静态界面，动态特效）、精通（知道背后的原理，知其所以然，自己的博客）、掌握（什么都会，公司架构，首席前端）
+2.你能给人家什么：
+     证明：我会，如何介绍自己会   。结合项目去说：使用了什么，发现了什么（拿项目证明自己）。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,82 @@
+@charset "utf-8";
+/* CSS Document */
+/*重置浏览器默认样式*/
+body,ul,input,p,dl,dt,dd,h1{margin:0;padding:0;}
+/*全局控制*/
+body{min-width:755px;color:#6c6c6c;font-size:12px}
+/*定义公共样式*/
+ul{list-style:none;}
+a{text-decoration:none;}
+a:hover{text-decoration:none;}
+.left{float:left;}
+.right{float:right;}
+
+/*-- 传智商城菜单栏  */
+#top{height:30px;
+	line-height:30px;
+	background:#F7F7F7;
+	border-bottom:1px solid #EEE;
+}
+#top ul{
+	margin:0px 20px;
+	}
+#top li{float:left;padding:0px 5px 0px 0px;}
+#top .line{color:red;}
+#top .top_nav{max-width:1220px;margin:0 auto;}
+.right li{cursor:pointer;} /*光标显示形状*/
+.right li span{padding:0px 9px;}
+
+/*传智商城主体*/
+#header{
+	width:1220px;
+	margin:0px auto;
+	padding-top:20px;
+	overflow:hidden; /*overflow 属性规定当内容溢出元素框时发生的事情 ，hidden	内容会被修剪，并且其余内容是不可见的。*/
+}
+#header a{
+	width:240px;
+	display:block;  /*display 属性规定元素应该生成的框的类型*/
+}
+#header #search{
+	width:500px;
+	margin-top:5px;
+
+}
+#header #search input{
+	width:416px;
+	height:30px;
+	border:3px solid #e4393c;   /*solid : 　实线边框（常用）*/
+}
+#header #search .search_btn{
+	width:78px;
+	height:36px;
+	background:#e4393c;
+	font-size:14px;
+	font-weight:700;
+	color:#fff;
+	cursor:pointer;
+}
+#header #search p{
+	font-size:12px;
+	margin-top:5px;
+	color:#8a7a6d;
+}
+#header #info{
+	margin-top:10px;margin-left:20px;
+}
+#header #info input{
+	margin-right:12px;
+	height:32px;
+	border:1px solid #e3e3e3;
+	background-color:#f7f7f7;color:#666;
+	padding:0px 10px;
+}
+
+.right .u100{
+	position:relative;
+}
+.right #u101{
+	width:95px;
+	display:none;
+}
+.right #u101 a{}

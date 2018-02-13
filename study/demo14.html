@@ -1,0 +1,19 @@
+<!doctype html>
+<meta charset="UTF-8">
+<html lang="en">
+<head>
+<title>获得焦点与失去焦点事件</title>
+	<script type="text/javascript">
+		function losefocus(obj){
+			obj.style.background="#fff";
+		}
+		function gfocus(obj){
+			obj.style.background="#ccc";
+		}
+	</script>
+
+</head>
+<body>
+	<input type="text" id="textfield" onblur="losefocus(this)" onfocus="gfocus(this)" >
+</body>
+</html>

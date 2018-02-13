@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>计算器</title>
+</head>
+
+<body>
+<form>
+<input type="text" id="num1" value="" />
+<select id="cp">
+<option value="+">+</option>
+<option value="-">-</option>
+<option value="*">*</option>
+<option value="/">/</option>
+</select>
+<input type="text" id="num2" value="" />
+<input type="button" value="=" onclick="calculate()"/>
+<input type="text" id="num3" readonly="true" /> 
+</form>
+<script type="text/javascript">
+function calculate(){
+	//获取数据，并转化为浮点数据
+	var num1=parseFloat(document.getElementById("num1").value);
+	var num2=parseFloat(document.getElementById("num2").value);
+	var oper=document.getElementById("cp").value;
+	//存放输出数据
+	var res="";
+	var expression=num1+oper+num2;
+	//判断输入数据，如果都不是数据或是0，为假，否则，为真；
+	if(num1&&num2){
+		eval("res="+expression);
+		}
+		//判断是否为出发且被除数是否为0；
+		else{
+			if((num2==0)&&(cp=="/"))
+			{
+				res="除数不能为0";	
+				}
+				else if(num1&&(num2==0) || num2 && (num1==0)){
+					eval("res="+expression);
+					}
+				else if((num1==0) && (num2==0)){
+					eval("res="+expression);
+					}
+			
+			else{
+				res="请输入数字";
+				}
+			}
+			//打印运算结果打form表单
+			
+			document.getElementById('num3').value=res;			
+	}
+
+</script>
+</body>
+</html>

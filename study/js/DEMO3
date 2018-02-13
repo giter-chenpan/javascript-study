@@ -1,0 +1,17 @@
+const arr = ['a', 'b', 'c'];
+
+arr.forEach(function(element) {
+    console.log(element);
+});
+
+
+arr.forEach( element => console.log(element));
+
+
+
+do{
+	var pro=prompt("please enter you name");
+	var con=confirm("confirm the name:"+pro);
+
+}while(!con)
+alter("hello"+pro);

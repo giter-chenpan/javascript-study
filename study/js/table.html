@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0;padding: 0;
+		}
+
+		#app{
+			width: 800px;
+			min-height: 100px;
+			border: 1px solid red;
+			margin: 100px auto;
+		}
+	</style>
+</head>
+<body>
+	<script type="text/javascript" src="table.js"></script>
+	<script type="text/javascript">
+
+		var table=new Table({
+			el:app; 
+		});//实例化一个对象
+
+			table.createTable({
+				col:10
+				row:5
+			});
+
+
+	</script>
+<div id="app"></div>
+</body>
+</html>

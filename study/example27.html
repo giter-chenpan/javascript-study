@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>TAB栏切换</title>
+</head>
+
+<body>
+<div class="tab-box" />
+ <div class="tab-head" id="tab-head" />
+   <div class="tab-head-div current">公司动态</div>
+   <div class="tab-head-div">开学典礼</div>
+   <div class="tab-head-div">学员感言</div>
+   <div class="tab-head-div tab-head-r">学员故事</div>
+  </div>
+ <div class="tab-body" id="tab-body">
+  <ul class="tab-body-ul current"> 
+  <li>1111111111</li>
+  <li>1111111111</li>
+  <li>1111111111</li>
+  <li>1111111111</li>
+  </ul>
+  <ul class="tab-body-ul">
+  <li>2222222222</li>
+  </ul>
+  <ul class="tab-body-ul">
+  <li>333333333</li>
+  </ul>
+  <ul class="tab-body-ul">
+  <li>444444444</li>
+  </ul>
+ </div>
+ </div>
+ <style type="text/css">
+ body{font-family:"宋体"; font-size:14px;}
+ body,ul,li{list-style:none;margin:none;padding:none;}
+ .tab-box{
+	 width:383px;
+	 margin:10px;
+	 border:1px solid #ccc;
+	 border-top:2px solid #206F96;
+	 }
+ .tab-head{
+	  height:30px;
+      }
+  .tab-head-div{
+  	width:95px;
+	height:30px;
+	float:left;
+  	border-bottom:1px solid #ccc;
+    border-right:1px solid #ccc;
+	background:#eee;
+	line-height:30px;
+	text-align:center;
+	cursor:pointer;
+  }
+  .tab-head .current{
+	  background:#fff;
+	  border-bottom:1px solid #fff;
+	  }
+  .tab-head-r{
+	border-right:0;  
+	 }
+   .tab-body-ul{
+	   display:none;
+	   margin:20px 10px;
+	   }
+	 .tab-body-ul li{
+		 margin:5px;}
+	 .tab-body .current{
+		 display:block;}
+ </style>
+ 
+ 
+ 
+ <script type="text/javascript">
+ //加载事件
+ window.onload=function(){
+	 //获得所有的g
+ var head_divs=document.getElementById("tab-head").getElementsByTagName("div");
+ var current_index=0;//索引
+ //设置定时器
+ var timer=window.setInterval(autoChange,5000);
+ 
+ 
+//遍历元素
+ for(var i=0;i<head_divs.length;i++){
+	 
+  //添加鼠标滑过事件
+  head_divs[i].onmouseover=function(){
+	  clearInterval(timer);//清除定时器
+	  if(i !=current_index){
+		 head_divs[current_index].style.background='';
+		 head_divs[current_index].style.borderBottom='';
+	  }
+	var body_divs=document.getElementById("tab-body").getElementsByTagName("ul");
+	for(i=0;i<body_divs.length;i++){
+		//将所有元素设为隐藏
+		body_divs[i].className=body_divs[i].className.replace("current","");
+		head_divs[i].className=head_divs[i].className.replace("current","");
+		//将当前索引对应的元素设为显示
+		if(head_divs[i]==this){
+			this.className +=" current";
+			body_divs[i].className +=" current";
+			}
+
+		}
+  }
+	
+	
+		 
+//鼠标移出事件		    
+		head_divs[i].onmouseout=function(){
+			timer=window.setInterval(autoChange,5000);//启动定时器，恢复自动切换
+			} 
+	  }
+	  
+   function autoChange(){
+	   ++current_index;
+	   if(current_index==head_divs.length){current_index=0;}
+	   for(var i=0;i<head_divs.length;i++){
+		   if(i==current_index){
+			   head_divs[i].style.backgroundColor='#fff';
+			   head_divs[i].style.borderBottom='1px soild #fff';
+			   }
+			   else{
+				  head_divs[i].style.backgroundColor='';
+			      head_divs[i].style.borderBottom='';
+				   }
+		   }
+		   
+		   var body_divs=document.getElementById("tab-body").getElementsByTagName("ul");
+	for(i=0;i<body_divs.length;i++){
+		//将所有元素设为隐藏
+		body_divs[i].className=body_divs[i].className.replace("current","");
+		head_divs[i].className=head_divs[i].className.replace("current","");
+		//将当前索引对应的元素设为显示
+		if(head_divs[i]==head_divs[current_index]){
+			this.className +=" current";
+			body_divs[i].className +=" current";
+			}
+
+		}
+	   }
+ }
+ </script>
+</body>
+</html>

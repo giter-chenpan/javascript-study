@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>控制小球的移动</title>
+	<style type="text/css">
+		
+		.box{
+			margin:100px;
+			height:256px;
+			border:1px solid #fff;
+			background:url(taiqiu.png) no-repeat;
+			}
+		img{position:relation; margin:50px;}
+	</style>
+   <script type="text/javascript">
+		window.onload=function(){
+			document.body.onkeyup=function(evt){
+				var step=20; //小球步长
+				var box=document.getElementById("box");
+				var img=document.getElementById("img");
+				//小球获得转化相对于div的左侧和右侧位置
+				var left=parseInt(img.style.left);
+				var top=parseInt(img.style.top);
+				//div的宽度和高度
+				var d_width=box.offsetWidth;
+				var d_height=box.offsetHeight;
+				//小球的宽度和高度
+				var b_width=img.width;
+				var b_height=img.height;
+				//小球距DIV左侧和顶部的最大距离
+				var x_max=d_width-b_width -step;
+				var y_max=d_height-b_height -step;
+
+
+				//创建事件对象：主流浏览器、ie浏览器
+				var e=evt ? evt : window.event;
+				if(e.keyCode==37 && left >=step){
+					img.style.left = left-step+"px";
+				}
+				if(e.keyCode==38 && top >=step){
+					img.style.top = top-step+"px";
+				}
+				if(e.keyCode==39 && left <=x_max){
+					img.style.left = left+step+"px";
+				}
+				if(e.keyCode==40 && top <=y_max){
+					img.style.top = top+step+"px";
+				}
+			}
+		}
+	</script>
+ </head>
+ <body>
+	<div id="box"  class="box" >
+		<img id="img" src="ball.png"  style="left:50px;top:50px;" /> 
+	
+	</div>
+ </body>
+</html>

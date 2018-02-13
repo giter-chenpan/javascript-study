@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>shopping</title>
+<style type="text/css">
+		body,ul,input,p,a{padding: 0;margin: 0;}
+		body{min-width: 755px;color: #6c6c6c;font-size: 12px;}
+		.right{float: right;}
+		.left{float: left;}
+		#top{
+			height: 30px;
+			line-height: 30px;
+			background-color: #f7f7f7;
+			border: 1px solid #eee;
+		}
+		#top ul{margin:0px 20px;}
+		#top li{float: left; padding: 0px 5px 0px 0px;}
+		#top .line{color: #ccc;}
+		#top .top_nav{max-width: 1550px;margin: 0px auto;}
+		#top .right li{cursor:pointer ;}
+		#top li span{padding: 0px 9px;}
+		ul{list-style: none;}
+
+		#header{
+			width: 1220px;
+			margin: 0 auto;
+			padding-top: 20px;
+			overflow: hidden;
+		}
+		#header a{display: block;width: 240px;}
+		#header #search{width:500px;margin-top: 15px;}
+		.right .u100{position: relative;}
+		.right #u101{
+			width:95px;
+			display: none;
+			position: absolute;
+			left:0;
+			top: 30px;
+			background-color: "red";
+			border: thin;
+		}
+		.right #u101 a{
+			display: block;
+			padding:0 10px;
+			line-height: 28px;
+
+		}
+</style>
+
+<script type="text/javascript">
+		function change(myid ,mode) {
+			document.getElementById(myid).style.display=mode;
+			if (mode=='block') {
+				document.getElementById(myid).style.border="1px solid #eee";
+				document.getElementById(myid).style.borderTop="none";
+				document.getElementById(myid).ParentNode.style.backgroundColor="fff";
+				document.getElementById(myid).ParentNode.style.border="1px solid #eee";
+				document.getElementById(myid).ParentNode.style.borderBottom="none";
+			} else {}
+		}
+</script>
+</head>
+<body>
+	<div id="top">
+		<ul class="top_nav">
+			<li>免费注册</li>
+			<li>亲，请登录</li>
+		</ul>
+		<ul class="right">
+			<li class="u100" onmousemove="change('u101','block')" onmouseout="change('u101','none')"><span>我的商城</span>
+				<div id="u101">
+					<a>21212</a>
+					<a>21212</a>
+					<a>21212</a>
+					<a>21212</a>
+
+				</div>
+			</li>
+			<li class="line">|</li>
+			<li><span>购物车</span></li>
+			<li class="line">|</li>
+			<li><span>收藏夹</span></li>
+			<li class="line">|</li>
+			<li><span>卖家中心</span></li>
+			<li class="line">|</li>
+			<li><span>联系客服</span></li>
+			<li class="line">|</li>
+		</ul>
+	</div>
+
+
+<div id="header">
+	<a class="left"><img src="logo.png"></a>
+	<div id="search" class="left">
+		<input type="text" class="left" />
+		<input type="button" class="search_btn" value="搜索">
+		<p>热门搜索：网页培训  大学教程  智能手机  平板电脑</p>
+	</div>
+	<div id="info" class="left">
+		<input type="button" name="" value="会员中心">
+		<input type="button" name="" value="去购物车结算">
+	</div>
+</div>
+
+</body>
+</html>

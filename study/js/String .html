@@ -1,0 +1,97 @@
+
+<html >
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>string</title>
+</head>
+<script type="text/javascript">
+
+
+	/*//替换
+		var s1="abc";
+		var s2=s1.replace("b","#");
+		alert(s1);
+		alert(s2);
+
+	//查找
+	var s1="abcdfwedf";
+	var r1=s1.indexOf("a");
+	var r2=s1.lastIndexOf("d");
+	alert(r1);
+	alert(r2);
+	*/
+	
+
+
+
+/*//敏感词过滤
+	var arr="a,b,c";
+	function filter(){
+		var s1=txt1.value;
+		for(var i = 0;i < arr.length; i++){
+			var reg=new RegExp(arr[i],"gi"); //正则表达式，全局匹配 不区分大小写
+			s1 = s1.replace(reg,"*"); 
+		txt2.value=s1;
+	}
+*/
+
+
+//用户名合法性检测
+function isSmallWord(c)
+{
+	var code =c.charCodeAt(0);//charCodeAt()把下标为0 的字符装换成编码
+	
+	return code >= 97 && code <= 122;
+}
+	function check() 
+	{
+		
+		var name=username.value;
+		if( !(name.length >= 6 && name.length <= 20))
+		{
+			alert('用户长度必须在6到20之间');
+			return;
+		}
+
+		var code = name.charCodeAt(0); //把下标为0的字符转化为编码
+		if( code >= 48 && code <= 57)
+		{
+			alert("不能以数字开头");
+			return;
+		}
+
+		
+		for(var i = 0;i < name.length;i++)
+		{
+			var a = name.charCodeAt(i);
+
+			//if( (a >=18 && a <=57) || (a <=122 && a >= 97) )
+				if(isSmallWord(a[i]) || !isNan(a[i]))
+				{
+
+				}
+				else{
+					alert("用户名需由 小写字母 和 数字组成")
+					return;
+					
+		    		}
+						
+				
+		}
+		alert('验证正确！');
+	}
+
+
+</script>
+<body>
+<!--
+	<textarea id="txt1"> </textarea>
+	<input type="button" value="过滤" onclick="filter()"/>
+	<textarea id="txt2"> </textarea>
+-->	
+
+	用户名 <input type="text" id="username" /> 
+
+	<input type='button' value="检测" onclick="check()"/>
+</body>
+</html>

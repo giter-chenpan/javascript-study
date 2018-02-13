@@ -1,0 +1,203 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>BOM</title>
+
+
+	<style type="text/css">
+
+	/*
+		body {
+		height: 2000px;
+	}
+	#adiv {
+		display: none;
+		text-align:center;
+		color: white;
+		line-height: 100px;
+		font-weight: bold;
+		width: 100px;
+		height: 100px;
+		background: red;
+		position: fixed;
+		right: 0;
+		bottom: 0;
+	}
+
+
+
+
+
+
+  */
+
+
+
+  #box{display:none;margin:10px 0;padding:10px;border:1px solid #ddd;font-size:30px;}
+
+
+	</style>
+	<script type="text/javascript">
+
+
+/*
+// (1) 奇数行 背景颜色为 红的
+//  (2) 偶数行 背景颜色为 黄的
+		window.onload=function(){
+			
+			var a = document.getElementById("list");
+			var b = document.getElementsByTagName("li");
+			for(var i = 0;i < b.length ; i++ ){
+				
+				b[i].style.background="red";
+				if(i%2 == 1){
+					b[i].style.background="yellow";
+				}
+			}
+		}
+*/
+
+
+/*
+window.onscroll=function(){
+	var t = document.body.scrollTop || document.documentElement.scrollTop;
+	if(t >= 500){
+		odiv.style.display="block";
+	}
+	else {
+		odiv.style.display="none";
+	}
+	console.log(t);
+}
+
+window.onload=function(){
+	odiv = document.getElementById("adiv");
+
+	odiv.onclick=function(){
+
+	document.documentElement.scrollTop = document.body.scrollTop = 0;
+
+}
+}
+
+
+*/
+
+
+
+/*
+window.onload = function(){
+	var obtn1 = document.getElementById("btn1");
+	var obox = document.getElementById("box");
+	obtn1.onclick=function(){
+		obox.style.display="block";
+	}
+
+
+	var t = 0
+	var obtn2 = document.getElementById("btn2");
+	obtn2.onclick = function(){
+		
+		t = setTimeout(function (){
+			obox.style.display = "none";
+		},5000);
+	}
+	obox.onMouseover=function(){
+		clearTimeout(t);
+	}
+	obox.onMouseout = function(){
+		obox.style.display = "none";
+	}
+}
+*/
+
+
+
+/*
+window.onload=function(){
+	var i = 1;
+	var t = document.getElementById("img");
+	window.setInterval(function(){
+		t.src="image/image"+i+".jpg";
+		i++;
+	if(i>=8){
+		i=1
+	}
+	},1000);
+
+}
+*/
+
+
+
+
+// window.navigator.userAgent  获取浏览器的信息
+//document.write(window.navigator.userAgent);
+//document.write(window.navigator.appName);
+
+
+
+/*
+var myWindow = window.open("https://www.baidu.com","","width=200px,height=200px");
+	
+	myWindow.document.write("dfcedf");
+	window.setInterval(function(){
+		var x = parseInt(Math.random() * 1000);
+		var y = parseInt(Math.random() * 600);
+		myWindow.moveTo(x,y);
+
+
+		var w = parseInt(Math.random() * 1000);
+		var h = parseInt(Math.random() * 600);
+		myWindow.resizeTo(w,h);
+	},1000);
+
+*/
+window.onload=function(){
+	var t = document.getElementsByTagName("button");
+
+	for( var i = 0;i < t.length ; i++){
+		t[i].onclick = function(){
+			alert(this.innerHTML);
+		}
+	}
+}
+	</script>
+
+
+
+
+</head>
+<body>
+<!--
+	<ul id="list">
+        <li><a href="http://www.baidu.com" class="baidu" id="baidu">百度</a></li>
+        <li><a href="http://www.baidu.com" class="baidu" id="baidu">百度</a></li>
+        <li><a href="http://www.baidu.com" class="baidu" id="baidu">百度</a></li>
+        <li><a href="http://www.baidu.com" class="baidu" id="baidu">百度</a></li>
+        <li><a href="http://www.baidu.com" class="baidu" id="baidu">百度</a></li>
+	</ul>
+
+
+
+<div id="adiv">回到顶部</div>
+
+
+<button id="btn1" >显示</button>
+<button id="btn2">隐藏</button>
+<div id="box" >#box</div>
+
+
+
+<img src="image/image1.jpg" id="img" alt="picturn" width="500">
+
+-->
+
+
+<button>按钮1</button>
+<button>按钮2</button>
+<button>按钮3</button>
+<button>按钮4</button>
+</body>
+</html>	

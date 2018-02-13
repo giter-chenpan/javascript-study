@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+		<title>Digital Clock</title>
+		<script type="text/javascript" src="jquery-3.2.1.min.js">
+
+			$("input.class").css("border","3px solid blue");
+			function displaytime() {
+				var elt=document.getElementById("clock");
+				var now=new Date();
+				elt.innerHTML=now.toLocaleTimeString();
+				setTimeout(displaytime,1000);
+			}
+			window.onload=displaytime;
+
+		</script>
+		<style type="text/css">
+			#clock{
+				font:bold 24pt sans;
+				background: #ddf;
+				padding: 30px;
+				border: solid black 2px;
+				border-radius: 100px;
+			}
+			
+		</style>
+
+	</head>
+<body>
+	<h1>Digital Clock</h1>
+	<span id="clock"></span>
+	<input class="dssds"  style="width: 100%"/>
+</body>
+ 
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>jquery test</title>
+	<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0;
+	}
+		body{
+			background:#000;
+			height: 100%;/*相对于父元素高度*/
+			overflow: hidden;
+		}
+		html{
+			height: 100%;/*相对于浏览器高度*/
+		}
+		.firework{
+			width: 10px;
+			height: 50px;
+			background: red;
+			border-radius: 50%;
+			position: absolute;
+		}
+
+		.fire{
+			position: absolute;
+			width:8px;
+			height: 8px;
+			background:#fff;
+			border-radius: 50%;
+		}
+
+	</style>
+</head>
+<body>
+	<script type="text/javascript">
+		var timer=0; 
+
+		//点击
+		document.onclick=function(e){
+			//获取鼠标的坐标
+    		var e = e || window.event;
+   	   		var x = e.clientX,
+   				y = e.clientY;
+
+   			var h=document.body.clientHeight;//获取body可视高度
+   			//console.log(h);
+			//创建一个div元素
+			var oDiv=document.createElement("div");
+			oDiv.className = "firework";
+			oDiv.style.left = x + "px";
+			oDiv.style.top=h+"px";
+			oDiv.style.background=color1();
+			//吧div添加到body
+			document.body.appendChild(oDiv);
+		
+	//子弹向上移动到鼠标单击的位置（路程、速度、定时器、时间）
+	var speed=10;
+	timer=setInterval(function(){
+		//子弹的新位置等于原来的位置+变换量（offset）
+		oDiv.style.top=oDiv.offsetTop-speed+"px";
+		//当移动鼠标移动的y坐标时
+	 if(oDiv.offsetTop <= y )
+	 	 {
+
+	 	oDiv.style.top=y + "px";
+	 	clearInterval(timer);//清除定时器
+	 	//	清除子弹
+	 	document.body.removeChild(oDiv);
+
+	 	//生成烟花
+	 	createFires(x,y,h);
+
+
+
+     	 }
+
+	},1000/60);
+
+
+
+
+	function createFires(x,y,h){
+		var n = Math.ceil(Math.random()*50)+50;//生成一个50-100之间的随机整数
+		var fires=[];
+		for(var i=0;i<n;i++)
+		{
+			fires[i]=document.createElement("div");
+			fires[i].className="fire";
+			fires[i].style.left=x+"px";
+			fires[i].style.top=y+"px";
+			fires[i].style.background=color1();
+			//给每个粒子添加速度值
+			fires[i].speedX=Math.random()*20 -10;//-10-10之间的随机数  （speedX为自定义属性）
+			fires[i].speedY=Math.random()*20 -10;
+			document.body.appendChild(fires[i]);
+
+		}
+		//添加粒子的移动
+		setInterval(function(){
+			for (var i = 0; i < n; i++) {
+				fires[i].style.left=fires[i].offsetLeft+fires[i].speedX + "px";
+				fires[i].style.top=fires[i].offsetTop+fires[i].speedY + "px";
+				//超出窗口部分就清除
+				if (fires[i].offsetTop>h || fires[i].offsetLeft<0 ||fires[i].offsetLeft >document.body.clientWidth) 
+				{
+					document.body.removeChild(fires[i]);
+				}
+			}
+
+		},1000/60);
+	}
+
+   	}
+   	//rgb生成随机颜色
+   	function color1(){
+   		var r=Math.floor(Math.random()*256);
+   		var g=Math.floor(Math.random()*256);
+   		var b=Math.floor(Math.random()*256);
+   		return "rgb("+r+","+g+","+b+")";
+   	}
+	</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		function postMassage(msg) {
+			// body...
+			var request=new XMLHttpRequest();//new request
+			request.open("POST","/test.js"); //用POST向服务器端发送脚本
+			request.setRequestHeader("Content-Type","text/plain;charset=UTF-8");//用请求主体发送纯文本消息，请求主体为纯文本
+			request.send(msg);  //把msg作为文本主体发送
+
+		}
+	</script>
+
+
+</head>
+<body>
+	
+</body>
+</html>

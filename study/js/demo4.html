@@ -1,0 +1,88 @@
+<html>
+<head>
+	<title>ssss</title>
+	<body>
+
+<script type="text/javascript">
+	
+function check() 
+{
+	var s = username.value;
+
+	if (  !(s.length >= 6 && s.length <= 20) )
+	{
+		alert('用户名长度错误，必须是 6~20 之间');
+		// 程序遇到 return，立马终止函数，后面的代码都不执行了
+		return ;
+	}
+
+	var code = s.charCodeAt(0);
+
+	if ( code >= 48  && code <= 57 )
+	{
+		alert("不能以数字开头");
+		return ;
+	}
+
+
+
+
+
+
+
+
+
+
+//       <3> 必须由 小写字母 和 数字组成
+//            思路： 取出每个字符的 ASCII码，判断是否在范围内
+//                    只要有一个就终止
+
+	for (var i = 0; i < s.length; i++)
+	{
+		var code = s.charCodeAt(i);
+
+
+		//           数字                     小写字母
+		// if ( (code >= 48 && code <= 57) || (code >= 97 && code <= 122 ))
+		if (isSmallWord(s[i]) || !isNaN( s[i] ) )
+		{
+			// 当前字符为数字 或者 小写字母 的情况
+		}
+		else 
+		{
+			alert("不满足条件!")
+
+			// 终止函数，return 后面的语句都不会执行
+			return ;
+
+
+			// break 终止循环，循环外部的代码，依然执行
+			// break ;
+		}
+		
+	}
+		
+
+
+
+
+
+
+
+	alert('验证正确！');
+}
+
+
+
+</script>
+
+ </head>
+
+ <body>
+  
+	用户名 <input type="text" id="username" /> 
+
+	<input type='button' value="检测" onclick="check()"/>
+
+ </body>
+</html>

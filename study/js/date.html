@@ -1,0 +1,251 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Date</title>
+
+<style type="text/css">
+    #div {
+	width: 100px;
+	height: 100px;
+	background: red;
+	/* 因为改变 div 是通过 style.left 只有在 绝对定位才有效果*/
+	position: absolute;
+	left: 100px;
+	top: 100px;
+}
+</style>
+
+
+
+	<script type="text/javascript">
+/* 		function fun(){
+
+		var d = new Date();
+		var h = d.getHours();
+		var m = d.getMinutes();
+		var s = d.getSeconds();
+
+		var t = h +":" + m +":" + s;
+		var odiv = document.getElementById('div');
+		odiv.innerHTML = t; 
+		setInterval(fun,1000);
+	}
+*/
+  
+  /*
+	var x = 100;
+	var y = 100;
+	function move(){
+		oDiv=document.getElementById("div");
+		oDiv.style.left = x + "px";
+		oDiv.style.top = y + "px";
+		x +=10;
+		y +=10;
+	}
+	var t = null;
+	function fun(){
+		if(t != null){
+			clearInterval(t);
+			t=null;
+			return;
+		}
+
+	
+	t=setInterval(move,100);
+	}
+
+
+
+
+
+
+
+
+	var rand = parseInt ((Math.random()) * 100000);
+	console.log(rand);
+	var arr=[];
+function math(){
+	
+	while(rand !== 0){
+	
+	var a1 = parseInt(rand%10);
+	arr.push(a1);
+	rand=parseInt(rand/10);
+
+}
+	document.write((arr.reverse());
+}
+	math();
+
+	function bb(){
+		var b = ["gw","sw","bw","qw","ww","sw2"];
+		for(var i = 0 ; i < arr.length; i++	){
+			document.write(b[i] + ":" + arr[i] +"<br>");
+		}
+
+	}
+	bb();
+
+*/
+
+
+
+
+//	var str = "a,a,3,1,d,r,a,e,f,e,r,e,r,e,e,r,e,r,w,r,w,r,w,r";
+//	var arr = str.split(","); //split 用于将字符串转化为字符串数组
+
+
+
+/*
+	function charcount(c,arr){
+		
+		var count = 0
+		for( var i =0 ; i <= arr.length ; i++){
+			if(c == arr[i]){
+			count ++;
+			}
+		}
+		return count;
+	}
+
+
+
+	
+
+	var obj = {};
+	for( var i = 0 ; i < arr.length; i ++){
+		var c=arr[i];
+		if(obj[c]!=undefined){ //字符已经被打印过了
+			continue;
+		}	
+		var count=charcount(c,arr);
+		document.write(c +":"+count+ "<br>");
+
+		obj[c]=1;
+	}
+
+
+*/
+
+
+
+/*
+	var b=[];
+	function hh(){
+		for( var i =0 ; i< arr.length ; i++){
+			var q=arr[i];
+			 for(var i = 0 ; i<b.length; i++){
+			 	if(q !=b[i]){
+			 		b.push(q);
+			 	}
+			 	else{
+			 		break;
+			 	}
+
+			 }
+			
+		}
+		return b;
+	}
+
+hh();
+
+
+*/
+
+
+
+
+
+	var rnd= parseInt( Math.random()*95 + 5);
+
+	console.log(rnd);
+
+	function fun(){
+		var a = document.getElementById("num").value;
+		if(a<rnd){
+			alert("xiaole");
+		}
+		else if(a>rnd){
+			alert("dale");
+		}
+		else{
+			alert("right");
+		}
+	}
+
+
+
+
+
+	window.onload=function(){
+		var obtn = document.getElementById("btn");
+		obtn.onclick=fun;
+	}
+
+
+
+
+
+
+
+
+//函数封装
+// 判断某年份是否为闰年, 传入年份，返回值：为闰年返回 true, 否则返回 false
+	function isLeap(obj) {
+		// body...
+		if((obj % 400 == 0) || (obj % 4 == 0 && obj % 100 != 0)){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+
+
+// 将 日期对象 格式化输出 “2015-08-24”
+// 参数： 日期对象
+// 返回值： 是一个字符串
+	
+		function dateop(obj){
+			var y = obj.getFullYear();
+			var m = obj.getMouths() + 1;
+			var d = obj.getDate();
+
+			str = y + "-";
+			if(m<10){
+				str+="0" + m;
+
+			}
+			str +="-"
+			if(d<10){
+				str +="0" + d;
+			}
+			return str;
+		}
+
+
+	</script>
+
+
+
+
+
+
+
+
+
+</head>
+<body>
+	
+	<!--<input type="button" value="time" onclick="fun()" />
+	<div id="div"></div>
+-->
+
+
+<h1>你来猜猜</h1>
+	<input type="text"  id="num"/>
+	<input type="button"  value="enter" id="btn"/>
+</body>
+</html>

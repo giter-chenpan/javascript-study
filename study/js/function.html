@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+
+	<script type="text/javascript">
+
+
+
+/*//三角形
+		function print() 
+  {
+	for (var i = 1; i <= 10; i++)
+	{
+		for (var j = 1; j <= 10-i; j++)
+		{
+			document.write("&nbsp;");
+		}
+		
+		for (var j = 1; j <= i; j++)
+		{
+			document.write("*");
+		}
+		
+		document.write("<br>");
+	}
+  }
+  print();
+*/
+
+
+/*
+function bufood(money,food){
+	if(food == "面条"){
+		if(money >= 7){
+			return "炸酱面";
+		}
+		else{
+			return "no 炸酱面";
+		}
+	}
+	if(food == "盖饭"){
+		if(money >= 10){
+			return "gf0";
+		}
+		else{
+			return "no gf0";
+		}
+	}
+}
+
+*/
+
+     	var x =1;
+		function m(x){
+			x++;
+		}	
+		m(x);
+		document.write(x);
+
+
+var data = 1;
+function echo(data)
+{
+	// 函数内部的 data = 1
+	// 让函数内部的 data++
+	data++;
+	// 函数内部：data: 2
+	// 返回函数内部的 data
+	// 2
+	return data;
+}
+// 将函数的返回值 2 赋值给 外部的 data 变量
+//data = echo(data);
+data=echo(data);
+document.write(data);
+
+ 
+
+function jiecheng(n)
+{
+	if(n=1){
+		return 1;
+	}
+	
+	return n * jiecheng(n-1);
+}
+	document.write( jiecheng(5) );
+
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
+

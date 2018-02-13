@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>ajax demo</title>
+</head>
+<body>
+	<script type="text/javascript">
+/*onreadystatechange //请求状态改变的事件触发器
+同源：相同的域名、端口、协议
+ajax只能访问同源借口
+解决同源、跨域：
+	1.配置虚拟服务器
+*/
+
+var xhr=new XMLHttpRequest();
+xhr.open("get","text.txt",true);
+xhr.send(null);
+xhr.onreadystatechange=function(){
+	if(xhr.readyState == 4){
+		if(xhr.status ==200){
+			console.log(xhr.responseText);
+		}
+	}
+
+}
+	</script>
+
+</body>
+</html>
