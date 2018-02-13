@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title>Document</title>
+	<style type="text/css">
+	html,body{
+		padding: 0;
+		margin: 0;
+		background: #F8B410;
+	}
+		#guajiang{
+			width: 240px;
+			height: 65px;
+			background: url(result.png) ;
+			background-size: cover;
+			margin: 10px auto;
+
+		}
+
+	h1{
+		text-align: center;
+	}
+	
+	#status{
+		text-align: center;
+		color:#f3f3f3;
+		font-family: sans-serif;
+	}
+
+	
+	</style>
+
+
+</head>
+<body>
+	<div align="center"><img src="bg.png" align="center"  width="240px"></div>
+
+	<h1>刮一刮</h1>
+	<div id="guajiang">
+		<canvas width="240px" height="65px" id="mask"></canvas>
+	</div>
+	<p id="status">请在以上的区域刮奖</p>
+
+
+
+	<script type="text/javascript">
+		var canvas = document.getElementById('mask');
+		var context = canvas.getContext('2d');
+		context.fillStyle = "#D1D1D1";
+		context.fillRect(0,0,240,65);
+		context.globalCompositeOperation = 'destination-out'; //在原图像再次进行绘制，新绘制的图像透明，即可露出奖项图片
+
+		canvas.addEventListener('touchmove',function (e) {
+			// body...
+			e.preventDefault(); //去除默认响应行为
+			var touch = e.touches[0]; //获取第一个触摸点
+
+			context.beginPath();
+			context.arc(touch.pageX-canvas.offsetLeft,touch.pageY-canvas.offsetTop,20,0,Math.PI*2);//绘制圆形，
+			context.closePath();
+			context.fillStyle = "#3947C1"; //再次绘制（刮奖！）
+			context.fill();
+
+			//判断是否刮奖完全（刮开90%以上）
+			var imgData = context.getImageData(0,0,240,65);
+			var pixelsArr = imgData.data;
+			var loop = pixelsArr.length;
+			var transparent = 0;  //用于记录已经改变的像素点
+
+			
+			for(var i =0 ; i<loop;i+=4){
+				var alpha = pixelsArr[i+3];
+				if(alpha<10){  //当透明小于10 ，认为已经删除
+					transparent++;
+				}
+			}
+
+			var percentage = transparent /(loop/4); 
+			if(percentage>.9){  				//大于90%，判断为完全刮开
+				document.getElementById('status').innerHTML = "ok!";
+			}
+		});
+	</script>
+</body>
+</html>

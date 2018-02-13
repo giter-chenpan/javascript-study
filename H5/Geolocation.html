@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,maximum-scale=1.0">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding:0;
+		}
+
+		body {
+	background:#8E44AD;
+	text-align:center;
+	margin:40px;
+	color:#FFF;
+	font-family:sans-serif;
+}
+h1{
+	border-bottom:1px solid rgba(255,255,255,.5);
+	padding-bottom:20px;
+	font-size:50px;
+}
+p{
+	padding-top: 30px;
+}
+	</style>
+</head>
+<body>
+	<img src="Map.png">
+	<h1 >您的位置</h1>
+	<p id="status" style="text-align: center;">地理位置加载中......</p>
+
+	<script type="text/javascript" src="http://libs.cdnjs.net/jquery/3.2.1/jquery.js">
+		
+	</script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			if(navigator.geolocation){
+				navigator.geolocation.getCurrentPosition(success)//获取地理位置
+			}
+			else{
+				document.getElementById("status").innerHTML ="该浏览器不支持HTML5 geolocation";
+			}
+		});
+
+		function success(position){
+			var latitude = position.coords.latitude;
+			var longitude = position.coords.longitude;
+			var accuracy = position.coords.accuracy;
+			var url = "http://api.map.baidu.com/geocoder/v2/?callback=renderReverse&location=39.934,116.329&output=json&pois=1&ak=jf6YmmLDSAwGa9WIxxRH4G2vvV9pRgUs";
+
+			$.ajax({
+				type:"get",
+				asyns:false,
+				url:url,
+				dataType:"jsonp",
+				success:function(json){
+					document.getElementById("status").innerHTML =json.result.sematic_description;
+				}
+
+			});
+			
+		}
+	</script>
+</body>
+</html>

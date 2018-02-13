@@ -31,11 +31,12 @@
 				var myBlue = img.data[i+2];
 				var Alpha = img.data[i+3];
 			
-				var myGay = parseInt((myRed + myGreen +myBlue)/3);
+				var myGay = parseInt((myRed + myGreen +myBlue)/3);  //灰色效果图片
 				img.data[i] = myGay;
 				img.data[i+1] = myGay;
 				img.data[i+2] = myGay;
-				img.data[i+3] = 128;
+				img.data[i+3] = 128;   //半透明
+				
 			}
 			context.putImageData(img,0,0);
 			

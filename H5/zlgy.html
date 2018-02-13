@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0 ,user-scalable=no,maximum-scale=1.0">
+	<title>Document</title>
+	<style type="text/css">
+
+		body{
+			background:#e67e22;
+			text-align: center;
+			margin: 40px;
+			color: #fff;
+			font-family: sans-serif;
+		}
+	img{
+	width:200px;
+	margin-left:50px;
+	animation:page_shake 1s ease infinite;
+	-webkit-animation:page_shake 1s ease infinite;
+}
+		h1{
+			border-bottom:  1px solid rgba(255,255,255,.5);
+			padding-bottom: 20px;
+			font-size: 50px;
+		}
+		@keyframes page_shake{
+			form{
+				transform: rotate(0deg);
+			}
+			4%{
+				transform: rotate(5deg);
+			}
+			12.5%{
+				transform: rotate(-5deg);
+			}
+			21%{
+				transform: rotate(5deg);
+			}
+			29%{
+				transform: rotate(-5deg);
+			}
+			37.5%{
+				transform: rotate(5deg);
+			}
+			46%{
+				transform: rotate(-5deg);
+			}
+			50%,to{
+				transform: rotate(0deg);
+			}
+
+		}
+		@-webkit-keyframes page_shake{
+			form{
+				transform: rotate(0deg);
+			}
+			4%{
+				transform: rotate(5deg);
+			}
+			12.5%{
+				transform: rotate(-5deg);
+			}
+			21%{
+				transform: rotate(5deg);
+			}
+			29%{
+				transform: rotate(-5deg);
+			}
+			37.5%{
+				transform: rotate(5deg);
+			}
+			46%{
+				transform: rotate(-5deg);
+			}
+			50%,to{
+				transform: rotate(0deg);
+			}
+		}
+	</style>
+</head>
+<body>
+	<img src="shake.png">
+	<h1>摇一摇</h1>
+	<p id="status"></p>
+	<script type="text/javascript">
+		if(window.DeviceMotionEvent){  //检测浏览器是否支持运动传感事件(DeviceMotionEvent事件)
+			window.addEventListener('devicemotion',deviceMotionHandler);
+		}
+		else{
+			doucument.getElementById('status').innerHTML='该设备不支持摇一摇';
+		}
+
+		var threshold = 50;  //设置阈值，超过阈值时判定为摇晃
+		var x,y,z,lastx,lasty,lastz = 0;  //本次摇动和上一次摇晃时设备的x,y,z上的加速度
+		var lastTime,curTime ;//本次摇晃和上次摇晃的时间
+		lastTime = new Date().getTime();  //获取当前的时间
+
+		function deviceMotionHandler(e){
+			var acceleration = e.accelerationIncludingGravity;
+			x = acceleration.x;  //x y z方向上的加速度
+			y = acceleration.y;
+			z = acceleration.z;
+			curTime = new Date().getTime();
+			if((curTime - lastTime) > 1000){
+				var speed = Math.abs( x +y+z-lastx-lasty-lastz) / (curTime-lastTime) * 10000;  //得到一个相对的速度值
+				document.getElementById('status').innerHTML = 'speed:'+speed ;
+				curTime = lastTime;
+				lastx = x;
+				lasty = y;
+				lastz = z;
+			}
+			if( speed > threshold){
+				window.removeEventListener('devicemotion',deviceMotionHandler);
+				document.getElementById('status').innerHTML = 'success!';
+			}
+		}
+	</script>
+</body>
+</html>

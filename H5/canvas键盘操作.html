@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	
+</head>
+<body>
+	<canvas id="mycanvas"></canvas>
+
+	<style type="text/css">
+		body,html{
+			height: 100%;
+			padding: 0;
+			margin: 0;
+		}
+		canvas{
+			background: url(../images/images/bg.png);
+			background-size: cover;
+		}
+
+
+
+	</style>
+	<script type="text/javascript">
+		var canvas = document.getElementById('mycanvas');
+		canvas.width = window.innerWidth;
+		canvas.height = window.innerHeight;
+		var context = canvas.getContext('2d');
+
+		var sequence = [];  //数组用于存储图片
+		var frameCount = 1;
+		var frameTotle = 12;
+		var man = {};
+		man.vx = 0;
+		man.x = 50;
+		man.y = window.innerHeight - 410;
+
+
+		//图片的遍历
+		for(var i = 1 ; i < frameTotle ; i++){
+			loadImg("../images/images/run_"+i+".png");
+
+		}
+
+		function loadImg(url){
+			var img = new Image();
+			img.src = url;
+			sequence.push(img);
+		}
+
+
+		function run(e){
+			man.x += man.vx;
+			if(man.x > canvas.width){  //如果大于可视宽度，回到最左侧
+				man.x = -300;
+
+			}
+			if(man.x < -300){
+				man.x = canvas.width;
+			}
+
+			frameCount++;
+			if(frameCount>=frameTotle){
+				frameCount = 1;
+			}
+			context.clearRect(0,0,canvas.width,canvas.height); //清除画布显示
+			context.drawImage(sequence[frameCount],man.x,man.y);  //在画布中绘制当前帧
+
+		}
+		setInterval(run,100);
+
+
+		document.onkeydown = function(e){
+			if(e.keyCode == 68){
+				man.vx = 50;
+			}
+			else if(e.keyCode == 65){
+				man.vx = -50;
+			}
+			else if(e.keyCode == 87){
+				man.y = window.innerHeight - 700;
+			}
+
+		};
+		document.onkeyup = function(e){
+			man.vx = 0;
+			man.y = window.innerHeight - 410;
+		};
+
+
+	</script>
+</body>
+</html>

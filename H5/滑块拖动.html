@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	
+</head>
+<body>
+	<div id="verify">
+		<div id="darg"></div>    <!--用于拖动的拼图图案-->
+		<div id="dot"></div>     <!--用于容纳圆形滑块-->
+		<p id="success">Success!</p>
+	</div>
+
+<style type="text/css">
+		body{
+			background: #006b9d;
+		}
+		#verify{
+			width: 508px;
+			height: 523px;
+			background: url(bg.png);
+			margin: 50px auto;
+			position: relative;
+		}
+		#darg{
+			width: 171px;
+			height: 140px;
+			background: url(drag.png);
+			position: absolute;
+			top: 185px;
+			left: 0px;
+		}
+		#dot{
+			width: 29px;
+			height: 29px;
+			background: url(dot.png);
+			position: absolute;
+			top: 460px;
+			left: 70px;
+
+		}
+		#success{
+			position: absolute;
+			display: none;
+			font-size: 32px;
+			right: 0;
+			top: 130px;
+			font-family: sans-serif;
+			color: #fff;
+			background: #c33;
+			padding: 5px 20px;
+		}
+
+
+	</style>
+
+	<script type="text/javascript">
+		var max = 350;   	//设置最大可拖动的范围
+		var final = 158;	//设置饼图的正确位置
+		var buffer = 7;		// 设置正确位置的缓冲数值
+		var success = document.getElementById('success');
+		var dot = document.getElementById('dot');
+		var drag = document.getElementById('darg');
+		var dostart = dot.offsetLeft;  //获取滑块的起始坐标X	
+		darg.style.left = -Math.random()*200+darg.offsetLeft+"px"; // 使拼图随即向左移动一段距离
+		var dargStart = darg.offsetLeft;  ////获取拼图的起始坐标X
+
+
+		dot.onmousedown = function(e){    //鼠标在dot区域按下时触发的事件
+			var startx = e.clientX;
+			var dotleft = dot.offsetLeft;
+			document.onmousemove = function(e){  //在按下dot区域后移动时触发
+				var move = e.clientX - startx; //距离起点的距离
+				var to = dotleft + move;  //m目的点的坐标
+				if(to > max + dostart){
+				 to = max + dostart;
+
+				}
+				else if(to < dostart){
+					to = dostart;
+				}
+				dot.style.left =to + "px";
+				darg.style.left = (dargStart+to-dostart) + "px";
+			};
+			document.onmouseup = function(e){   //鼠标松开时 触发事件
+				this.onmousemove=null;
+				if(Math.abs(darg.offsetLeft - final)<buffer){ //饼图与目标位置坐标差值（绝对值）是否在在缓冲区域内
+					success.style.display = "block";  
+				}
+				else{
+					success.style.display = "none";
+				}
+			}
+		};
+	</script>
+</body>
+</html>

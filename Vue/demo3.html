@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>计算属性和观察者demo</title>
+</head>
+<body>
+	<div id="app-1">
+<!--
+		<p>Origin message:"{{message}}"</p>
+		<p>computed reverse message:"{{reverseMessage}}"</p>
+		<p>reverse message:"{{reversedMessage()}}"</p>
+	 
+
+		<p>{{fullname}}</p>
+	</div>
+-->	
+
+
+
+	<div id="watch-example">
+		<p>
+			Ask a yes/no question:
+			<input v-model="question">
+		</p>
+	</div>
+	<script src="Vue.js"></script>
+	<script type="text/javascript">
+
+
+/*
+		var app1 = new Vue({
+			el:'#app-1',
+			data:{
+				message:'hello Vue'
+			},
+
+			computed:{
+				// 计算属性的 getter
+				reverseMessage:function(){
+					return this.message.split("").reverse().join("");
+				}
+			},
+			//方法
+			methods:{
+				reversedMessage:function(){
+					return this.message.split('').reverse().join('');
+				}
+			}
+		})
+
+
+*/
+
+
+/*
+		var vm = new Vue({
+			el:'#app-1',
+			data:{
+				firstname:'chen',
+				lastname:'pan'
+			},
+			//计算属性的 setter,计算属性默认只有 getter ，不过在需要时你也可以提供一个 setter 
+
+			computed:{
+				fullname:{
+
+					//getter
+				get:function(){
+					return this.firstname + this.lastname
+				},
+
+				//setter
+				set:function(value){
+					var name = value.split(' ')
+					this.firstname = name[0]
+					this.lastname = name[name.length-1]
+				}
+			}
+		}
+
+		})
+*/
+
+
+
+	</script>
+</body>
+</html>

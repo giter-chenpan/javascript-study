@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>列表渲染</title>
+</head>
+<body>
+
+
+<!--用 v-for 把一个数组对应为一组元素-->
+<ul id="app-1">
+    <li v-for="item in items">
+        {{item.message}}
+    </li>
+</ul>
+
+<!--v-for 还支持一个可选的第二个参数为当前项的索引。-->
+<ul id="app-2">
+    <li v-for="(item ,index) in items">
+    {{parentMessage}}-{{index}}-{{item.message}}
+    </li>
+</ul>
+
+
+<!--一个对象的 v-for   用 v-for 通过一个对象的属性来迭代  ,提供第二个的参数为键名, 第三个参数为索引：-->
+    <ul id="v-for-object" class="demo">
+        <li v-for="( value, key , index) in object">
+            {{index}} . {{key}} : {{value}}
+        </li>
+    </ul>
+
+
+<script src="vue.js" ></script>
+<script type="application/javascript">
+
+    //用 v-for 把一个数组对应为一组元素
+    var app1 = new Vue({
+        el:"#app-1",
+        data:{
+            items:[
+                {message:'12'},
+                {message:'34'}
+            ]
+        }
+    })
+
+    var app2 = new Vue({
+        el:'#app-2',
+        data:{
+            parentMessage:'parent',
+            items:[
+                {message:'56'},
+                {message:'78'}
+            ]
+        }
+    })
+
+
+    new Vue({
+        el:'#v-for-object',
+        data:{
+            object:{
+                firstname:'john',
+                lastname:'doe',
+                age:'30'
+            }
+        }
+    })
+</script>
+</body>
+</html>
