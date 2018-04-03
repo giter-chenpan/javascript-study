@@ -50,7 +50,7 @@
 		var context = canvas.getContext('2d');
 		context.fillStyle = "#D1D1D1";
 		context.fillRect(0,0,240,65);
-		context.globalCompositeOperation = 'destination-out'; //在原图像再次进行绘制，新绘制的图像透明，即可露出奖项图片
+		context.globalCompositeOperation = 'destination-out'; //目标图像覆盖源图像，在原图像再次进行绘制，新绘制的图像透明，即可露出奖项图片
 
 		canvas.addEventListener('touchmove',function (e) {
 			// body...
@@ -64,7 +64,7 @@
 			context.fill();
 
 			//判断是否刮奖完全（刮开90%以上）
-			var imgData = context.getImageData(0,0,240,65);
+			var imgData = context.getImageData(0,0,240,65);  //获取字节数据
 			var pixelsArr = imgData.data;
 			var loop = pixelsArr.length;
 			var transparent = 0;  //用于记录已经改变的像素点
@@ -72,7 +72,7 @@
 			
 			for(var i =0 ; i<loop;i+=4){
 				var alpha = pixelsArr[i+3];
-				if(alpha<10){  //当透明小于10 ，认为已经删除
+				if(alpha<10){  //当透明小于10 ，认为已经删除  范围为0~256 越大越不透明
 					transparent++;
 				}
 			}

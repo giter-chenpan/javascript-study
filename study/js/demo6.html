@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<!--
+	<span id="one" style=" cursor: pointer;">+ </span>  <span id="two" style=" cursor: pointer;">-</span>
+	<div id="main">
+	
+	<p style="font-size: 22px ">知识点 ：获取元素、 点击事件、自增 自减运算、操作样式、if判断</p>
+	</div>
+	<script type="text/javascript">
+		let oOne = document.getElementById('one');
+		let oTwo = document.getElementById('two');
+		let num = 22;
+		oOne.onclick = function (){
+			num ++;
+			if(num > 30){
+				num = 30;
+			}
+			document.getElementById('main').style.fontSize=num+"px";
+		}
+		oTwo.onclick = function(){
+			num --;
+			if(num < 22){
+				num = 22;
+			}
+			document.getElementById('main').style.fontSize = num + "px";
+		}
+	</script>
+-->
+
+<!--计算器-->
+	<div class="wrap">
+		<p class="show" style="text-align: right; width: 7%">0</p>
+		<input type="button" name="" value="1" class="num">
+		<input type="button" name="" value="2" class="num">
+		<input type="button" name="" value="3" class="num">
+		<input type="button" name="" value="+" class="fuhao"><br>
+		<input type="button" name="" value="4" class="num">
+		<input type="button" name="" value="5" class="num">
+		<input type="button" name="" value="6" class="num">
+		<input type="button" name="" value="-" class="fuhao"><br>
+		<input type="button" name="" value="7" class="num">
+		<input type="button" name="" value="8" class="num">
+		<input type="button" name="" value="9" class="num">
+		<input type="button" name="" value="*" class="fuhao"><br>
+		<input type="button" name="" value="0" class="num">
+		<input type="button" name="" value="." class="num">
+		<input type="button" name="" value="=" id="result">
+		<input type="button" name="" value="/" class="fuhao">
+	</div>
+	<script type="text/javascript">
+		var oShow = document.getElementsByClassName('show')[0];
+		var oNum = document.getElementsByClassName('num');
+		var ofuhao = document.getElementsByClassName('fuhao');
+		var ores = document.getElementById('result');
+
+		var show = '';
+		var firstName = '';
+		var secondName = '';
+		var fuhao = '';
+		for(var i = 0; i < oNum.length; i++){
+			oNum[i].onclick = function(){
+				if(fuhao){
+					
+					oShow.innerHTML +=this.value;
+					secondName +=this.value;
+				}else{
+					show +=this.value;
+					oShow.innerHTML = show;
+					
+				}
+			};
+		};
+
+		for(var i = 0 ; i < ofuhao.length ; i++){
+			ofuhao[i].onclick = function(){
+				fuhao = this.value;
+				firstName = oShow.innerHTML;
+				oShow.innerHTML +=this.value;
+			};
+		}
+
+		ores.onclick = function(){
+			var res = 0;
+			switch(fuhao){
+				case '+':
+					res = (firstName*1) + (secondName*1);
+					break;
+				case '-':
+					res = firstName - secondName;
+					break;
+				case '*':
+					res = firstName * secondName;
+					break;
+				case '/':
+					if(secondName != '0'){
+						res = firstName / secondName;
+						
+					}else{
+						alert('error!');
+					}
+					break;
+
+			}
+			oShow.innerHTML = res;
+			show = '';
+			firstName = res;
+			secondName = '';
+			fuhao = '';
+		};
+
+
+
+	</script>
+</body>
+</html>
